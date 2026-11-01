@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GigaCodeAgentSettings">
+    <option name="autoApproveEdits" value="true" />
+    <option name="autoApprovedCommands">
+      <list>
+        <Execute>
+          <option name="pattern" value="Remove-Item -Path &quot;C:\Users\malen\IdeaProjects\hotel-booking\booking-service\src\main\java\org\example\bookingservice\filter\TraceIdFilter.java&quot; -Force -ErrorAction SilentlyContinue" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cmd /c &quot;set JAVA_HOME=C:\Program Files\Java\jdk-17 &amp;&amp; set PATH=C:\Program Files\Java\jdk-17\bin;%PATH% &amp;&amp; cd /d C:\Users\malen\IdeaProjects\hotel-booking &amp;&amp; java -version &amp;&amp; mvn -version&quot;" />
+        </Execute>
+      </list>
+    </option>
+    <option name="autoApprovedReads">
+      <list>
+        <Read>
+          <option name="pattern" value="/home/user/repos/*" />
+        </Read>
+        <Read>
+          <option name="pattern" value="/home/user/*" />
+        </Read>
+        <Read>
+          <option name="pattern" value="/root/*" />
+        </Read>
+        <Read>
+          <option name="pattern" value="//*" />
+        </Read>
+      </list>
+    </option>
+  </component>
+</project>

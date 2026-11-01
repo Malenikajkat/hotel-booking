@@ -1,0 +1,45 @@
+server.port=8082
+
+app.jwt.secret=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+app.jwt.expiration-ms=3600000
+
+spring.application.name=booking-service
+spring.datasource.url=jdbc:h2:mem:bookingdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+
+management.endpoints.web.exposure.include=health,info
+
+management.resilience4j.metrics.enabled=true
+
+resilience4j.retry.instances.hotelService.max-attempts=5
+resilience4j.retry.instances.hotelService.wait-duration=200ms
+resilience4j.retry.instances.hotelService.exponential-backoff-multiplier=2
+resilience4j.retry.instances.hotelService.minimum-wait-duration=200ms
+resilience4j.retry.instances.hotelService.maximum-wait-duration=5s
+resilience4j.retry.instances.hotelService.retry-exceptions=
+    - org.springframework.web.client.ResourceAccessException
+    - org.springframework.web.client.RestClientException
+    - org.example.bookingservice.exception.HotelServiceUnavailableException
+
+resilience4j.circuitbreaker.instances.hotelService.failure-rate-threshold=50
+resilience4j.circuitbreaker.instances.hotelService.wait-duration-in-open-state=10s
+resilience4j.circuitbreaker.instances.hotelService.sliding-window-size=10
+resilience4j.circuitbreaker.instances.hotelService.minimum-number-of-calls=5
+resilience4j.circuitbreaker.instances.hotelService.permitted-number-of-calls-in-half-open-state=3
+
+logging.level.org.example.bookingservice=DEBUG
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] [%X{traceId:-}] %-5level %logger{36} - %msg%n
